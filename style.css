@@ -15,6 +15,10 @@
   font-family: var(--ff);
 }
 
+body {
+  height: 100vh;
+}
+
 main {
   position: relative;
   background: url('img/body-bg.jpg') no-repeat center center;
