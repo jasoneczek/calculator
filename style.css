@@ -96,7 +96,7 @@ main::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.25rem;
   background: rgba(255, 255, 255, 0.1);
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -112,7 +112,7 @@ main::after {
 .btn-equals,
 .btn-plus-minus {
   color: var(--green-btn);
-  font-size: 1.25rem; 
+  font-size: 1.5rem; 
 }
 
 .btn-delete {
