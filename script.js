@@ -7,6 +7,11 @@ const topNumber = document.querySelector('#topNumber');
 const displayBottom = document.querySelector('#displayBottom');
 const operatorBtns = document.querySelectorAll('.btn-operator');
 
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => (b !== 0? a / b : alert("Error: Division by zero not allowed"));
+
 let firstNumber = null;
 let currentOperator = null;
 let result = null;
@@ -96,23 +101,6 @@ function toggleNegative() {
     }
     displayBottom.textContent = newValue;
   })
-}
-
-// Basic math operators
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
 }
 
 // Performs arithmetic operations based on the operator symbol
