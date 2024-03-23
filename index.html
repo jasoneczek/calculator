@@ -22,29 +22,30 @@
           <a href="https://www.github.com/jasoneczek/"><i class="fab fa-github fa-2x icon"></i></a>
           <div id="topNumber" class="top-number">45</div>
         </div>
-
-        <div id="bottomNumber" class="bottom-number">12</div>
+        <div class="display-bottom">
+          <div id="bottomNumber" class="bottom-number"></div>
+        </div>
       </div>
       <div id="keypad" class="keypad">
-        <div class="btn btn-clear">CA</div>
-        <div class="btn btn-delete">Del</div>
-        <div class="btn btn-plus-minus">&plusmn;</div>
-        <div class="btn btn-operator">&divide;</div>
+        <div id="clearBtn" class="btn btn-clear">CA</div>
+        <div id="deleteBtn" class="btn btn-delete">Del</div>
+        <div id="plusMinusBtn" class="btn btn-plus-minus">&plusmn;</div>
+        <div class="btn btn-operator" data-operator="/">&divide;</div>
         <div class="btn btn-number">7</div>
         <div class="btn btn-number">8</div>
         <div class="btn btn-number">9</div>
-        <div class="btn btn-operator">&#215;</div>
+        <div class="btn btn-operator" data-operator="*">&#215;</div>
         <div class="btn btn-number">6</div>
         <div class="btn btn-number">5</div>
         <div class="btn btn-number">4</div>
-        <div class="btn btn-operator">&#8722;</div>
+        <div class="btn btn-operator" data-operator="-">&#8722;</div>
         <div class="btn btn-number">3</div>
         <div class="btn btn-number">2</div>
         <div class="btn btn-number">1</div>
-        <div class="btn btn-operator">+</div>
-        <div class="btn btn-decimal">&#46;</div>
+        <div class="btn btn-operator" data-operator="+">+</div>
+        <div class="btn btn-number">&#46;</div>
         <div class="btn btn-number">0</div>
-        <div class="btn btn-equals">&#61;</div>
+        <div id="equalsBtn" class="btn btn-equals">&#61;</div>
       </div>
     </div>
   </main>
