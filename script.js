@@ -1,15 +1,8 @@
-const operators = {
-  '+': add,
-  '-': subtract,
-  '*': multiply,
-  '/': divide
-}
-
 const numberBtns = document.querySelectorAll('.btn-number');
 const clearBtn = document.querySelector('#clearBtn');
 const deleteBtn = document.querySelector('#deleteBtn');
 const plusMinusBtn = document.querySelector('#plusMinusBtn');
-const equalsBtn = document.querySelector('#btn-equals');
+const equalsBtn = document.querySelector('#equalsBtn');
 const topNumber = document.querySelector('#topNumber');
 const displayBottom = document.querySelector('#displayBottom');
 const operatorBtns = document.querySelectorAll('.btn-operator');
@@ -37,7 +30,6 @@ function displayNumbers() {
     });
   })
 }
-
 
 function clearDisplay() {
   clearBtn.addEventListener('click', () => {
@@ -84,15 +76,26 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  if (b === 0) {
-    return "Error. Division by 0 not allowed."
-  }
   return a / b;
 }
 
+// Performs arithmetic operations based on the operator symbol
 function operate(operator, num1, num2) {
-  if (Object.hasOwn(operators, operator)) {
-    return operators[operator](num1, num2);
+  switch (operator) {
+    case '+':
+      return add(num1, num2);
+    case '-':
+      return subtract(num1, num2);
+    case '*':
+      return multiply(num1, num2);
+    case '/':
+      if (num2 !== 0) {
+        return divide(num1, num2);
+      } else {
+        alert("Error: Division by zero not allowed");
+      }
+    default:
+      return num2;
   }
 }
 
