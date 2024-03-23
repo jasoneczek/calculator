@@ -11,14 +11,29 @@ const deleteBtn = document.querySelector('#deleteBtn');
 const plusMinusBtn = document.querySelector('#plusMinusBtn');
 const equalsBtn = document.querySelector('#btn-equals');
 const topNumber = document.querySelector('#topNumber');
-const bottomNumber = document.querySelector('#bottomNumber');
+const displayBottom = document.querySelector('#displayBottom');
+const operatorBtns = document.querySelectorAll('.btn-operator');
 
+function appendOperator() {
+  operatorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      let operatorSign = btn.textContent;
+      console.log(operatorSign);
+      let value = displayBottom.textContent;
+      
+      if (value !== null) {
+        topNumber.textContent = `${value} ${operatorSign}`;
+        displayBottom.textContent = '';
+      }
+    })
+  })
+}
 
 function displayNumbers() {
   numberBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       let number = btn.textContent;
-      bottomNumber.textContent += number;
+      displayBottom.textContent += number;
     });
   })
 }
@@ -27,31 +42,31 @@ function displayNumbers() {
 function clearDisplay() {
   clearBtn.addEventListener('click', () => {
     topNumber.textContent = '';
-    bottomNumber.textContent = '';
+    displayBottom.textContent = '';
   })
 }
 
 function deleteNumber() {
   deleteBtn.addEventListener('click', () => {
-    let value = bottomNumber.textContent;
+    let value = displayBottom.textContent;
     let newValue; 
     if (value !== '') {
       newValue = value.slice(0, -1);
-      bottomNumber.textContent = newValue;
+      displayBottom.textContent = newValue;
     }
   })
 }
 
 function toggleNegative() {
   plusMinusBtn.addEventListener('click', () => {
-    let value = bottomNumber.textContent;
+    let value = displayBottom.textContent;
     let newValue;
     if (value.charAt(0) === '-') {
       newValue = value.slice(1);
     } else {
       newValue = `-${value}`;
     }
-    bottomNumber.textContent = newValue;
+    displayBottom.textContent = newValue;
   })
 }
 
@@ -85,4 +100,5 @@ displayNumbers();
 clearDisplay();
 deleteNumber();
 toggleNegative();
+appendOperator();
 
