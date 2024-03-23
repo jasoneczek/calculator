@@ -7,26 +7,62 @@ const topNumber = document.querySelector('#topNumber');
 const displayBottom = document.querySelector('#displayBottom');
 const operatorBtns = document.querySelectorAll('.btn-operator');
 
+let firstNumber = null;
+let currentOperator = null;
+let result = null;
+
+equalsBtn.addEventListener('click', calculateResult);
+
 function appendOperator() {
   operatorBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      let operatorSign = btn.textContent;
-      console.log(operatorSign);
-      let value = displayBottom.textContent;
+      const operatorSign = btn.dataset.operator;
+      const value = displayBottom.textContent;
       
       if (value !== null) {
-        topNumber.textContent = `${value} ${operatorSign}`;
-        displayBottom.textContent = '';
+        if (firstNumber === null) {
+          firstNumber = parseFloat(value);
+          currentOperator = operatorSign;
+          topNumber.textContent = `${value} ${operatorSign}`;
+          displayBottom.textContent = '';
+        } else {
+          const secondNumber = parseFloat(value);
+          result = operate(currentOperator, firstNumber, secondNumber);
+          displayBottom.textContent = result;
+          firstNumber = result;
+          currentOperator = operatorSign;
+          topNumber.textContent = `${result} ${operatorSign}`;
+        }
       }
-    })
-  })
+      displayBottom.textContent = '';
+    });
+  });
+}
+
+function calculateResult() {
+  const value = displayBottom.textContent;
+  if (value !== '') {
+    const secondNumber = parseFloat(value);
+    result = operate(currentOperator, firstNumber, secondNumber);
+    displayBottom.textContent = result;
+    firstNumber = result;
+    currentOperator = null;
+    topNumber.textContent = '';
+  }
 }
 
 function displayNumbers() {
   numberBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      let number = btn.textContent;
-      displayBottom.textContent += number;
+      const number = btn.textContent;
+
+      if (result !== null) {
+        result = null;
+        displayBottom.textContent = '';
+        displayBottom.textContent += number;
+      } else {
+        displayBottom.textContent += number;
+      } 
     });
   })
 }
