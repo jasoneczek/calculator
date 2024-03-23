@@ -26,20 +26,17 @@ const operate = (operator, num1, num2) => {
   }
 };
 
-equalsBtn.addEventListener('click', calculateResult);
-
-function appendOperator() {
+const appendOperator = () => {
   operatorBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const operatorSign = btn.dataset.operator;
       const value = displayBottom.textContent;
       
-      if (value !== null) {
+      if (value !== '') {
         if (firstNumber === null) {
           firstNumber = parseFloat(value);
           currentOperator = operatorSign;
           topNumber.textContent = `${value} ${operatorSign}`;
-          displayBottom.textContent = '';
         } else {
           const secondNumber = parseFloat(value);
           result = operate(currentOperator, firstNumber, secondNumber);
@@ -113,7 +110,7 @@ function toggleNegative() {
   })
 }
 
-
+equalsBtn.addEventListener('click', calculateResult);
 
 displayNumbers();
 clearDisplay();
