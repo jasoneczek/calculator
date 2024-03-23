@@ -41,16 +41,16 @@ main::after {
 }
 
 .calculator {
+  margin: 0 0.5rem;
   padding: 1rem;
   z-index: 10;
-  margin: 0 0.75rem;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
   backdrop-filter: blur(8px);
 }
 
 .display {
-  max-width: 100%;
+  /* max-width: 100%; */
   margin-bottom: 2rem;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -79,7 +79,7 @@ main::after {
 }
 
 .display-bottom {
-  height: 3rem;
+  height: 3.5rem;
   font-size: 2.8rem;
   color: var(--white);
   text-align: end;
@@ -87,7 +87,7 @@ main::after {
 }
 
 .keypad {
-  max-width: 100%;
+  /* max-width: 100%; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
@@ -96,7 +96,7 @@ main::after {
 }
 
 .btn {
-  height: 44px;
+  /* height: 44px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,7 +150,6 @@ main::after {
 
   .btn {
     font-size: 1.4rem;
-    height: 50px;
   }
 
   .btn-operator,
