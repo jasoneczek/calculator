@@ -51,19 +51,20 @@ const appendOperator = () => {
   });
 }
 
-function calculateResult() {
+const calculateResult = () => {
   const value = displayBottom.textContent;
   if (value !== '') {
     const secondNumber = parseFloat(value);
     result = operate(currentOperator, firstNumber, secondNumber);
+    result = result.toFixed(3).replace(/\.?0*$/, '');
     displayBottom.textContent = result;
-    firstNumber = result;
+    firstNumber = parseFloat(result);
     currentOperator = null;
     topNumber.textContent = '';
   }
 }
 
-function displayNumbers() {
+const displayNumbers = () => {
   numberBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const number = btn.textContent;
@@ -71,41 +72,34 @@ function displayNumbers() {
       if (result !== null) {
         result = null;
         displayBottom.textContent = '';
-        displayBottom.textContent += number;
-      } else {
-        displayBottom.textContent += number;
-      } 
+      }
+
+      displayBottom.textContent += number;
     });
   })
 }
 
-function clearDisplay() {
+const clearDisplay = () => {
   clearBtn.addEventListener('click', () => {
     topNumber.textContent = '';
     displayBottom.textContent = '';
   })
 }
 
-function deleteNumber() {
+const deleteNumber = () => {
   deleteBtn.addEventListener('click', () => {
-    let value = displayBottom.textContent;
-    let newValue; 
+    const value = displayBottom.textContent;
     if (value !== '') {
-      newValue = value.slice(0, -1);
+      const newValue = value.slice(0, -1);
       displayBottom.textContent = newValue;
     }
   })
 }
 
-function toggleNegative() {
+const toggleNegative = () => {
   plusMinusBtn.addEventListener('click', () => {
     let value = displayBottom.textContent;
-    let newValue;
-    if (value.charAt(0) === '-') {
-      newValue = value.slice(1);
-    } else {
-      newValue = `-${value}`;
-    }
+    const newValue = value.charAt(0) === '-' ? value.slice(1) : `-${value}`;
     displayBottom.textContent = newValue;
   })
 }
