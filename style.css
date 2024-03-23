@@ -60,6 +60,7 @@ main::after {
 }
 
 .display-top a {
+  height: 2.5rem;
   text-decoration: none;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.1);
@@ -97,7 +98,7 @@ main::after {
   align-items: center;
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   color: #fff;
   transition: 0.3s ease-in-out;
@@ -124,10 +125,6 @@ main::after {
 
 .btn-clear {
   color: var(--red-btn);
-}
-
-.footer {
-  z-index: 10;
 }
 
 @media (min-width: 767px) {
