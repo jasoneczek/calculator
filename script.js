@@ -16,6 +16,16 @@ let firstNumber = null;
 let currentOperator = null;
 let result = null;
 
+const operate = (operator, num1, num2) => {
+  switch (operator) {
+    case '+': return add(num1, num2);
+    case '-': return subtract(num1, num2);
+    case '*': return multiply(num1, num2)
+    case '/': return divide(num1, num2);
+    default: return num2;
+  }
+};
+
 equalsBtn.addEventListener('click', calculateResult);
 
 function appendOperator() {
@@ -103,25 +113,7 @@ function toggleNegative() {
   })
 }
 
-// Performs arithmetic operations based on the operator symbol
-function operate(operator, num1, num2) {
-  switch (operator) {
-    case '+':
-      return add(num1, num2);
-    case '-':
-      return subtract(num1, num2);
-    case '*':
-      return multiply(num1, num2);
-    case '/':
-      if (num2 !== 0) {
-        return divide(num1, num2);
-      } else {
-        alert("Error: Division by zero not allowed");
-      }
-    default:
-      return num2;
-  }
-}
+
 
 displayNumbers();
 clearDisplay();
